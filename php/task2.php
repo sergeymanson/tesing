@@ -4,34 +4,44 @@ declare(strict_types=1);
 $exampleString = 'camelCasing';
 
 /**
- * @param string $input
+ * @param string $string
  * @return string
  */
-function solution(string $input): string
+function solution(string $string): string
 {
-    $arrayFromInput = splitString($input);
-    $implodeInput = implode($arrayFromInput);
+    $inputArray = stringToArray($string);
+    $preparedString = prepareString($inputArray);
 
-    return mb_strtolower($implodeInput);
+
+    return mb_strtolower ($preparedString);
 }
 
 /**
  * @param string $string
  * @return array
  */
-function splitString(string $string): array
+function stringToArray(string $string): array
 {
-    $res = [];
-    $length = strlen($string);
+    return preg_split('//', $string);
+}
 
-    for ($i=0; $i<$length; $i++) {
-        if (preg_match('/[A-Z]/', $string[$i])) {
-            $res[] = ' ';
+/**
+ * @param array $inputArray
+ * @return string
+ */
+function prepareString(array $inputArray): string
+{
+    $res = '';
+
+    foreach ($inputArray as $item) {
+        if (preg_match('/[A-Z]/', $item)) {
+            $res .= ' ';
         }
-        $res[] = $string[$i];
+        $res .= $item;
     }
 
     return $res;
 }
+
 
 echo solution($exampleString);
