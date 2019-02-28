@@ -10,8 +10,7 @@ $exampleString = 'camelCasing';
 function solution(string $string): string
 {
     $inputArray = stringToArray($string);
-    $preparedString = prepareString($inputArray);
-
+    $preparedString = prepareStringFromArray($inputArray);
 
     return mb_strtolower ($preparedString);
 }
@@ -29,7 +28,7 @@ function stringToArray(string $string): array
  * @param array $inputArray
  * @return string
  */
-function prepareString(array $inputArray): string
+function prepareStringFromArray(array $inputArray): string
 {
     $res = '';
 
