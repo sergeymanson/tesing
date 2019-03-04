@@ -9,7 +9,7 @@ let input = 'aim';
  * @returns {Array}
  */
 function autoComplete(input, dictionary) {
-  return filtering(input, dictionary).slice(0, 5);
+  return filtering(input, dictionary).slice(0, 4);
 }
 
 /**
