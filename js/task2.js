@@ -66,7 +66,6 @@ function divided(x) {
 }
 function checkCalculations() {
     return nine(minus(three()));
-
 }
 
 
