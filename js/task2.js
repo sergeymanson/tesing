@@ -8,7 +8,7 @@ function main(number, f) {
 }
 
 function zero(argument) {
-    return makeNum(0, argument);
+    return main(0, argument);
 }
 
 function one(argument) {
